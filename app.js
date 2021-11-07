@@ -20,9 +20,7 @@ let io = socket(server, {
 
 //Socket Area
 io.on('connection', (socket) => {
-  console.log(socket.id)
     socket.on('new-message', (message) => {
-      console.log(message.data);
         io.emit('ReceiveMessage', `${message.data}`);
       })
       socket.on('disconnect', (data) => {
